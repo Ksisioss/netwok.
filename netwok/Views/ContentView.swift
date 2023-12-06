@@ -10,12 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(named: "AppIcon"))
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("netwok.").bold().font(.system(size: 40))
+            VStack {
+                Image(uiImage: UIImage(named: "wokIcon")!)
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Text("netwok.").bold().font(Font.custom("manrope", size: 40))
+                Text("Eat and meet").font(Font.custom("manrope", size: 18))
+            }
+            Spacer()
+            MapKit
         }
-        .padding()
     }
 }
 
