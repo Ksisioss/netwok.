@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEDB89E92B20D535004EC9D8 /* netwokApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB89E82B20D535004EC9D8 /* netwokApp.swift */; };
+		BEDB89EB2B20D535004EC9D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB89EA2B20D535004EC9D8 /* ContentView.swift */; };
+		BEDB89ED2B20D536004EC9D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDB89EC2B20D536004EC9D8 /* Assets.xcassets */; };
+		BEDB89F02B20D536004EC9D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDB89EF2B20D536004EC9D8 /* Preview Assets.xcassets */; };
+		BEDB89FA2B20D536004EC9D8 /* netwokTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB89F92B20D536004EC9D8 /* netwokTests.swift */; };
+		BEDB8A042B20D536004EC9D8 /* netwokUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB8A032B20D536004EC9D8 /* netwokUITests.swift */; };
+		BEDB8A062B20D536004EC9D8 /* netwokUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB8A052B20D536004EC9D8 /* netwokUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEDB89F62B20D536004EC9D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEDB89DD2B20D535004EC9D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEDB89E42B20D535004EC9D8;
+			remoteInfo = netwok;
+		};
+		BEDB8A002B20D536004EC9D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEDB89DD2B20D535004EC9D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEDB89E42B20D535004EC9D8;
+			remoteInfo = netwok;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BEDB89E52B20D535004EC9D8 /* netwok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netwok.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDB89E82B20D535004EC9D8 /* netwokApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netwokApp.swift; sourceTree = "<group>"; };
+		BEDB89EA2B20D535004EC9D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BEDB89EC2B20D536004EC9D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEDB89EF2B20D536004EC9D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BEDB89F52B20D536004EC9D8 /* netwokTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = netwokTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDB89F92B20D536004EC9D8 /* netwokTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netwokTests.swift; sourceTree = "<group>"; };
+		BEDB89FF2B20D536004EC9D8 /* netwokUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = netwokUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDB8A032B20D536004EC9D8 /* netwokUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netwokUITests.swift; sourceTree = "<group>"; };
+		BEDB8A052B20D536004EC9D8 /* netwokUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netwokUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEDB89E22B20D535004EC9D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEDB89F22B20D536004EC9D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEDB89FC2B20D536004EC9D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEDB89DC2B20D535004EC9D8 = {
+			isa = PBXGroup;
+			children = (
+				BEDB89E72B20D535004EC9D8 /* netwok */,
+				BEDB89F82B20D536004EC9D8 /* netwokTests */,
+				BEDB8A022B20D536004EC9D8 /* netwokUITests */,
+				BEDB89E62B20D535004EC9D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEDB89E62B20D535004EC9D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEDB89E52B20D535004EC9D8 /* netwok.app */,
+				BEDB89F52B20D536004EC9D8 /* netwokTests.xctest */,
+				BEDB89FF2B20D536004EC9D8 /* netwokUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEDB89E72B20D535004EC9D8 /* netwok */ = {
+			isa = PBXGroup;
+			children = (
+				BEDB8A152B20D734004EC9D8 /* Views */,
+				BEDB8A142B20D615004EC9D8 /* Services */,
+				BEDB8A132B20D5F6004EC9D8 /* ViewModels */,
+				BEDB8A122B20D5F0004EC9D8 /* Models */,
+				BEDB89E82B20D535004EC9D8 /* netwokApp.swift */,
+				BEDB89EC2B20D536004EC9D8 /* Assets.xcassets */,
+				BEDB89EE2B20D536004EC9D8 /* Preview Content */,
+			);
+			path = netwok;
+			sourceTree = "<group>";
+		};
+		BEDB89EE2B20D536004EC9D8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BEDB89EF2B20D536004EC9D8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BEDB89F82B20D536004EC9D8 /* netwokTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEDB89F92B20D536004EC9D8 /* netwokTests.swift */,
+			);
+			path = netwokTests;
+			sourceTree = "<group>";
+		};
+		BEDB8A022B20D536004EC9D8 /* netwokUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BEDB8A032B20D536004EC9D8 /* netwokUITests.swift */,
+				BEDB8A052B20D536004EC9D8 /* netwokUITestsLaunchTests.swift */,
+			);
+			path = netwokUITests;
+			sourceTree = "<group>";
+		};
+		BEDB8A122B20D5F0004EC9D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BEDB8A132B20D5F6004EC9D8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BEDB8A142B20D615004EC9D8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BEDB8A152B20D734004EC9D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEDB89EA2B20D535004EC9D8 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEDB89E42B20D535004EC9D8 /* netwok */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEDB8A092B20D536004EC9D8 /* Build configuration list for PBXNativeTarget "netwok" */;
+			buildPhases = (
+				BEDB89E12B20D535004EC9D8 /* Sources */,
+				BEDB89E22B20D535004EC9D8 /* Frameworks */,
+				BEDB89E32B20D535004EC9D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = netwok;
+			productName = netwok;
+			productReference = BEDB89E52B20D535004EC9D8 /* netwok.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEDB89F42B20D536004EC9D8 /* netwokTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEDB8A0C2B20D536004EC9D8 /* Build configuration list for PBXNativeTarget "netwokTests" */;
+			buildPhases = (
+				BEDB89F12B20D536004EC9D8 /* Sources */,
+				BEDB89F22B20D536004EC9D8 /* Frameworks */,
+				BEDB89F32B20D536004EC9D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEDB89F72B20D536004EC9D8 /* PBXTargetDependency */,
+			);
+			name = netwokTests;
+			productName = netwokTests;
+			productReference = BEDB89F52B20D536004EC9D8 /* netwokTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BEDB89FE2B20D536004EC9D8 /* netwokUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEDB8A0F2B20D536004EC9D8 /* Build configuration list for PBXNativeTarget "netwokUITests" */;
+			buildPhases = (
+				BEDB89FB2B20D536004EC9D8 /* Sources */,
+				BEDB89FC2B20D536004EC9D8 /* Frameworks */,
+				BEDB89FD2B20D536004EC9D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEDB8A012B20D536004EC9D8 /* PBXTargetDependency */,
+			);
+			name = netwokUITests;
+			productName = netwokUITests;
+			productReference = BEDB89FF2B20D536004EC9D8 /* netwokUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEDB89DD2B20D535004EC9D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BEDB89E42B20D535004EC9D8 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					BEDB89F42B20D536004EC9D8 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = BEDB89E42B20D535004EC9D8;
+					};
+					BEDB89FE2B20D536004EC9D8 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = BEDB89E42B20D535004EC9D8;
+					};
+				};
+			};
+			buildConfigurationList = BEDB89E02B20D535004EC9D8 /* Build configuration list for PBXProject "netwok" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEDB89DC2B20D535004EC9D8;
+			productRefGroup = BEDB89E62B20D535004EC9D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEDB89E42B20D535004EC9D8 /* netwok */,
+				BEDB89F42B20D536004EC9D8 /* netwokTests */,
+				BEDB89FE2B20D536004EC9D8 /* netwokUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEDB89E32B20D535004EC9D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEDB89F02B20D536004EC9D8 /* Preview Assets.xcassets in Resources */,
+				BEDB89ED2B20D536004EC9D8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEDB89F32B20D536004EC9D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEDB89FD2B20D536004EC9D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEDB89E12B20D535004EC9D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEDB89EB2B20D535004EC9D8 /* ContentView.swift in Sources */,
+				BEDB89E92B20D535004EC9D8 /* netwokApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEDB89F12B20D536004EC9D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEDB89FA2B20D536004EC9D8 /* netwokTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEDB89FB2B20D536004EC9D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEDB8A062B20D536004EC9D8 /* netwokUITestsLaunchTests.swift in Sources */,
+				BEDB8A042B20D536004EC9D8 /* netwokUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEDB89F72B20D536004EC9D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEDB89E42B20D535004EC9D8 /* netwok */;
+			targetProxy = BEDB89F62B20D536004EC9D8 /* PBXContainerItemProxy */;
+		};
+		BEDB8A012B20D536004EC9D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEDB89E42B20D535004EC9D8 /* netwok */;
+			targetProxy = BEDB8A002B20D536004EC9D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BEDB8A072B20D536004EC9D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BEDB8A082B20D536004EC9D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEDB8A0A2B20D536004EC9D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"netwok/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HKG.netwok;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEDB8A0B2B20D536004EC9D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"netwok/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HKG.netwok;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BEDB8A0D2B20D536004EC9D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HKG.netwokTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/netwok.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/netwok";
+			};
+			name = Debug;
+		};
+		BEDB8A0E2B20D536004EC9D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HKG.netwokTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/netwok.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/netwok";
+			};
+			name = Release;
+		};
+		BEDB8A102B20D536004EC9D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HKG.netwokUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = netwok;
+			};
+			name = Debug;
+		};
+		BEDB8A112B20D536004EC9D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HKG.netwokUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = netwok;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEDB89E02B20D535004EC9D8 /* Build configuration list for PBXProject "netwok" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEDB8A072B20D536004EC9D8 /* Debug */,
+				BEDB8A082B20D536004EC9D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEDB8A092B20D536004EC9D8 /* Build configuration list for PBXNativeTarget "netwok" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEDB8A0A2B20D536004EC9D8 /* Debug */,
+				BEDB8A0B2B20D536004EC9D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEDB8A0C2B20D536004EC9D8 /* Build configuration list for PBXNativeTarget "netwokTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEDB8A0D2B20D536004EC9D8 /* Debug */,
+				BEDB8A0E2B20D536004EC9D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEDB8A0F2B20D536004EC9D8 /* Build configuration list for PBXNativeTarget "netwokUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEDB8A102B20D536004EC9D8 /* Debug */,
+				BEDB8A112B20D536004EC9D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEDB89DD2B20D535004EC9D8 /* Project object */;
+}
