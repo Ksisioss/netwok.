@@ -1,30 +1,79 @@
-//
-//  MapView.swift
-//  netwok
-//
-//  Created by lebreuil thibault on 06/12/2023.
-//
-
 import SwiftUI
 import MapKit
 
-
-struct MapView: View {
-    var body: some View {
-        Map(initialPosition: .region(region))
-    }
-
-
-    private var region: MKCoordinateRegion {
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868),
-            span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-        )
-    }
+struct Building: Identifiable {
+    var id = UUID()
+    var name: String
+    var location: CLLocationCoordinate2D
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
+struct MapView: UIViewRepresentable {
+    @Binding var showingSheet: Bool
+    @State private var selectedBuilding: Building?
+    
+    var buildings: [Building] = [
+        Building(name: "Building 1", location: CLLocationCoordinate2D(latitude: 44.83558, longitude: -0.57179)),
+        // Add more buildings as needed
+    ]
+    
+
+    
+    func makeUIView(context: Context) -> MKMapView {
+        let mapView = MKMapView()
+        mapView.delegate = context.coordinator
+        
+        // Add an annotation for the town's coordinate
+        let townCoordinate = CLLocationCoordinate2D(latitude: 44.83642, longitude: -0.5736)
+
+        // Set up the map region centered on the town
+        let region = MKCoordinateRegion(
+            center: townCoordinate,
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        )
+        mapView.setRegion(region, animated: false)
+        
+        // Set up the map annotations
+        buildings.forEach { building in
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = building.location
+            annotation.title = building.name
+            mapView.addAnnotation(annotation)
+        }
+
+        return mapView
+    }
+
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+        // Update any necessary UI changes
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self, showingSheet: $showingSheet)
+    }
+
+    class Coordinator: NSObject, MKMapViewDelegate {
+        var parent: MapView
+        @Binding var showingSheet: Bool
+
+        init(parent: MapView, showingSheet: Binding<Bool>) {
+            self.parent = parent
+            self._showingSheet = showingSheet
+        }
+
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(systemName: "mappin.circle.fill")
+            annotationView.tintColor = .red // Customize the color as needed
+            return annotationView
+        }
+
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            if let buildingName = view.annotation?.title,
+               let building = parent.buildings.first(where: { $0.name == buildingName }) {
+                parent.selectedBuilding = building
+                showingSheet = true
+            }
+        }
     }
 }

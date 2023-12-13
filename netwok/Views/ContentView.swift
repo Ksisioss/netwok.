@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingSheet = false
     var body: some View {
         VStack {
             VStack {
@@ -18,10 +19,13 @@ struct ContentView: View {
                 Text("Eat and meet").font(Font.custom("manrope", size: 18))
             }
             Spacer()
-            MapKit
+            MapView(showingSheet: $showingSheet)
+                            .edgesIgnoringSafeArea(.all)
+                            .frame(height: 300)
         }
     }
 }
+    
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
