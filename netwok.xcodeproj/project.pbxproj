@@ -15,6 +15,9 @@
 		BEDB8A042B20D536004EC9D8 /* netwokUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB8A032B20D536004EC9D8 /* netwokUITests.swift */; };
 		BEDB8A062B20D536004EC9D8 /* netwokUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB8A052B20D536004EC9D8 /* netwokUITestsLaunchTests.swift */; };
 		BEDB8A172B20DFD8004EC9D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB8A162B20DFD8004EC9D8 /* MapView.swift */; };
+		BEEA294F2B2A1ACB00471829 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA294E2B2A1ACB00471829 /* User.swift */; };
+		BEEA29512B2A1C7E00471829 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA29502B2A1C7E00471829 /* Building.swift */; };
+		BEEA29532B2A1F1A00471829 /* BuildingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA29522B2A1F1A00471829 /* BuildingDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		BEDB8A032B20D536004EC9D8 /* netwokUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netwokUITests.swift; sourceTree = "<group>"; };
 		BEDB8A052B20D536004EC9D8 /* netwokUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netwokUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BEDB8A162B20DFD8004EC9D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		BEEA294E2B2A1ACB00471829 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BEEA29502B2A1C7E00471829 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		BEEA29522B2A1F1A00471829 /* BuildingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,8 @@
 		BEDB8A122B20D5F0004EC9D8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BEEA294E2B2A1ACB00471829 /* User.swift */,
+				BEEA29502B2A1C7E00471829 /* Building.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 			children = (
 				BEDB89EA2B20D535004EC9D8 /* ContentView.swift */,
 				BEDB8A162B20DFD8004EC9D8 /* MapView.swift */,
+				BEEA29522B2A1F1A00471829 /* BuildingDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,7 +301,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEA294F2B2A1ACB00471829 /* User.swift in Sources */,
 				BEDB89EB2B20D535004EC9D8 /* ContentView.swift in Sources */,
+				BEEA29512B2A1C7E00471829 /* Building.swift in Sources */,
+				BEEA29532B2A1F1A00471829 /* BuildingDetailsView.swift in Sources */,
 				BEDB8A172B20DFD8004EC9D8 /* MapView.swift in Sources */,
 				BEDB89E92B20D535004EC9D8 /* netwokApp.swift in Sources */,
 			);

@@ -1,18 +1,13 @@
 import SwiftUI
 import MapKit
 
-struct Building: Identifiable {
-    var id = UUID()
-    var name: String
-    var location: CLLocationCoordinate2D
-}
-
 struct MapView: UIViewRepresentable {
     @Binding var showingSheet: Bool
     @State private var selectedBuilding: Building?
     
     var buildings: [Building] = [
-        Building(name: "Building 1", location: CLLocationCoordinate2D(latitude: 44.83558, longitude: -0.57179)),
+        Building(id:"0", name: "Building 1", latitude: 44.83558, longitude: -0.57179),
+        Building(id:"0", name: "Building 1", latitude: 44.83560, longitude: -0.57100),
         // Add more buildings as needed
     ]
     
@@ -35,7 +30,7 @@ struct MapView: UIViewRepresentable {
         // Set up the map annotations
         buildings.forEach { building in
             let annotation = MKPointAnnotation()
-            annotation.coordinate = building.location
+            annotation.coordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
             annotation.title = building.name
             mapView.addAnnotation(annotation)
         }

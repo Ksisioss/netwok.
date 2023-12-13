@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showingSheet = false
+    @State private var selectedBuilding: Building?
+    @State private var current_user = User(lastame: "Valentin", firstname: "Munch", company: "Onlyfan", job_title: "CamGirl", email: "valentin.munch@onlyfan.cg", building: "1", inside: false)
     var body: some View {
         VStack {
             VStack {
@@ -20,8 +22,12 @@ struct ContentView: View {
             }
             Spacer()
             MapView(showingSheet: $showingSheet)
-                            .edgesIgnoringSafeArea(.all)
-                            .frame(height: 300)
+                .edgesIgnoringSafeArea(.all).sheet(isPresented: $showingSheet) {
+                    if let selectedBuilding = selectedBuilding {
+                        // Present details for the selected building in a sheet
+                        BuildingDetailsView(building:selectedBuilding)
+                    }
+            }
         }
     }
 }
