@@ -11,7 +11,7 @@ struct MapView: UIViewRepresentable {
         // Add more buildings as needed
     ]
     
-
+    
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -19,7 +19,7 @@ struct MapView: UIViewRepresentable {
         
         // Add an annotation for the town's coordinate
         let townCoordinate = CLLocationCoordinate2D(latitude: 44.83642, longitude: -0.5736)
-
+        
         // Set up the map region centered on the town
         let region = MKCoordinateRegion(
             center: townCoordinate,
@@ -34,35 +34,42 @@ struct MapView: UIViewRepresentable {
             annotation.title = building.name
             mapView.addAnnotation(annotation)
         }
-
+        
         return mapView
     }
-
+    
     func updateUIView(_ uiView: MKMapView, context: Context) {
         // Update any necessary UI changes
     }
-
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(parent: self, showingSheet: $showingSheet)
     }
-
+    
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
         @Binding var showingSheet: Bool
-
+        
         init(parent: MapView, showingSheet: Binding<Bool>) {
             self.parent = parent
             self._showingSheet = showingSheet
         }
-
+        
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
-            annotationView.canShowCallout = true
-            annotationView.image = UIImage(systemName: "mappin.circle.fill")
-            annotationView.tintColor = .red // Customize the color as needed
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "customMarker") as? MKMarkerAnnotationView
+            
+            if annotationView == nil {
+                annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "customMarker")
+                annotationView?.canShowCallout = true
+            } else {
+                annotationView?.annotation = annotation
+            }
+            
+            annotationView?.markerTintColor = .red
+            
             return annotationView
         }
-
+        
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             if let buildingName = view.annotation?.title,
                let building = parent.buildings.first(where: { $0.name == buildingName }) {
