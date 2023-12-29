@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct Building : Codable, Hashable{
+struct Building : Codable, Hashable, Identifiable{
     var id: String
     var name: String
+    var address: String
     var latitude: Double
     var longitude: Double
 }

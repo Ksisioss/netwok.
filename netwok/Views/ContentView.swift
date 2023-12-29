@@ -10,28 +10,36 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingSheet = false
     @State private var selectedBuilding: Building?
-    @State private var current_user = User(lastame: "Valentin", firstname: "Munch", company: "Onlyfan", job_title: "CamGirl", email: "valentin.munch@onlyfan.cg", building: "1", inside: false)
+    @State private var current_user = User(lastame: "Abc", firstname: "Def", company: "Google", job_title: "Developer", email: "abcdef@google.inc", building: "1", inside: false)
+    
     var body: some View {
         VStack {
             VStack {
                 Image(uiImage: UIImage(named: "wokIcon")!)
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
-                Text("netwok.").bold().font(Font.custom("manrope", size: 40))
-                Text("Eat and meet").font(Font.custom("manrope", size: 18))
+                Text("netwok.").bold().font(Font.custom("Manrope-SemiBold", size: 48))
+                Text("Eat and meet").font(Font.custom("Manrope-SemiBold", size: 20))
             }
             Spacer()
-            MapView(showingSheet: $showingSheet)
-                .edgesIgnoringSafeArea(.all).sheet(isPresented: $showingSheet) {
-                    if let selectedBuilding = selectedBuilding {
-                        // Present details for the selected building in a sheet
-                        BuildingDetailsView(building:selectedBuilding)
-                    }
+            VStack {
+                MapView(showingSheet: $showingSheet, selectedBuilding: $selectedBuilding)
+                    .edgesIgnoringSafeArea(.all)
+            }
+            .sheet(isPresented: $showingSheet) {
+                if let building = selectedBuilding {
+                    BuildingDetailsView(building: building)
+                }
+            }
+            .onChange(of: selectedBuilding) { _ in
+                if selectedBuilding != nil {
+                    showingSheet = true
+                }
             }
         }
     }
 }
-    
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

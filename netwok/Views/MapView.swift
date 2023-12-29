@@ -3,11 +3,11 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
     @Binding var showingSheet: Bool
-    @State private var selectedBuilding: Building?
+    @Binding public var selectedBuilding: Building?
     
     var buildings: [Building] = [
-        Building(id:"0", name: "Building 1", latitude: 44.83558, longitude: -0.57179),
-        Building(id:"0", name: "Building 1", latitude: 44.83560, longitude: -0.57100),
+        Building(id:"0", name: "Building 1", address: "String", latitude: 44.83558, longitude: -0.57179),
+        Building(id:"1", name: "Building 2", address: "String",latitude: 44.83560, longitude: -0.57100),
         // Add more buildings as needed
     ]
     
@@ -23,7 +23,7 @@ struct MapView: UIViewRepresentable {
         // Set up the map region centered on the town
         let region = MKCoordinateRegion(
             center: townCoordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         )
         mapView.setRegion(region, animated: false)
         
