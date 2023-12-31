@@ -6,8 +6,11 @@ struct MapView: UIViewRepresentable {
     @Binding public var selectedBuilding: Building?
     
     var buildings: [Building] = [
-        Building(id:"0", name: "Building 1", address: "String", latitude: 44.83558, longitude: -0.57179),
-        Building(id:"1", name: "Building 2", address: "String",latitude: 44.83560, longitude: -0.57100),
+        Building(id:"0", name: "Big Fernand", address: "5 Rue Guiraude, 33000 Bordeaux", image1: "autre-petit-bois-p1", image2: "autre-petit-bois-p2", image3:"autre-petit-bois-p3", latitude: 44.83978, longitude: -0.57524),
+        Building(id:"1", name: "Restaurant le Saint Georges", address: "2 Pl. Camille Jullian, 33000 Bordeaux", image1: "autre-petit-bois-p1", image2: "autre-petit-bois-p2", image3:"autre-petit-bois-p3",latitude: 44.83912, longitude: -0.57202),
+        Building(id:"2", name: "L'Autre Petit Bois", address: "12 Pl. du Parlement, 33000 Bordeaux", image1: "autre-petit-bois-p1", image2: "autre-petit-bois-p2", image3:"autre-petit-bois-p3",latitude: 44.84085, longitude: -0.57232),
+        Building(id:"3", name: "Le Bocal de Tatie Josée", address: "71 rue des Trois-Conils, 33000 Bordeaux", image1: "autre-petit-bois-p1", image2: "autre-petit-bois-p2", image3:"autre-petit-bois-p3",latitude: 44.83854, longitude: -0.57885),
+        Building(id:"4", name: "Bioburger Bdx Gambetta", address: "12 Rue Georges Bonnac, 33000 Bordeaux", image1: "autre-petit-bois-p1", image2: "autre-petit-bois-p2", image3:"autre-petit-bois-p3",latitude: 44.84027, longitude: -0.58181),
         // Add more buildings as needed
     ]
     
@@ -18,12 +21,12 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         
         // Add an annotation for the town's coordinate
-        let townCoordinate = CLLocationCoordinate2D(latitude: 44.83642, longitude: -0.5736)
+        let townCoordinate = CLLocationCoordinate2D(latitude: 44.83960109052766, longitude: -0.5769507919217551)
         
         // Set up the map region centered on the town
         let region = MKCoordinateRegion(
             center: townCoordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         )
         mapView.setRegion(region, animated: false)
         

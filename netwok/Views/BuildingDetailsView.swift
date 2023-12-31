@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BuildingDetailsView: View {
     var building: Building
+    @State private var isButtonPressed = false
+    
     
     var body: some View {
         VStack {
@@ -40,7 +42,7 @@ struct BuildingDetailsView: View {
                         .frame(width: 120, height: 120) // Taille du rectangle
                         .cornerRadius(10) // Arrondi des coins pour le rectangle
                     
-                    Image("image_test")
+                    Image(building.image1)
                         .resizable()
                         .aspectRatio(contentMode: .fill) // L'image remplit le cadre
                         .frame(width: 120, height: 120) // Taille de l'image identique au rectangle
@@ -50,14 +52,14 @@ struct BuildingDetailsView: View {
                 .clipped()
                 
                 VStack {
-                    Image(uiImage: UIImage(named: "image_test")!)
+                    Image(uiImage: UIImage(named: building.image2)!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 120, height: 55)
                         .cornerRadius(10)
                         .clipped()
                     
-                    Image(uiImage: UIImage(named: "image_test")!)
+                    Image(uiImage: UIImage(named: building.image3)!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 120, height: 55)
@@ -98,13 +100,13 @@ struct BuildingDetailsView: View {
                 .transition(.move(edge: .bottom))
             }.padding(.horizontal, 75)
             
-            Button("Join"){
-                
+            Button(isButtonPressed ? "Left" : "Join") {
+                isButtonPressed.toggle()
             }
             .font(.custom("Manrope-Medium", size: 13))
             .foregroundColor(.black)
             .frame(width: 73, height: 23)
-            .buttonStyle(ThreeDButtonStyle(fillColor: Color(red: 233/255, green: 255/255, blue: 235/255)))
+            .buttonStyle(ThreeDButtonStyle(fillColor: isButtonPressed ? Color(red: 255/255, green: 236/255, blue: 236/255) : Color(red: 233/255, green: 255/255, blue: 235/255)))
             .padding(.top, 25)
             
             
@@ -122,6 +124,6 @@ struct BuildingDetailsView: View {
 
 struct BuildingDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        BuildingDetailsView(building: Building(id:"0", name: "Building 1", address: "25 rue des Champs, 33002 BORDEAUX", latitude: 44.83558, longitude: -0.57179))
+        BuildingDetailsView(building: Building(id:"0", name: "Building 1", address: "25 rue des Champs, 33002 BORDEAUX", image1: "autre-petit-bois-p1", image2: "autre-petit-bois-p2", image3:"autre-petit-bois-p3", latitude: 44.83558, longitude: -0.57179))
     }
 }
