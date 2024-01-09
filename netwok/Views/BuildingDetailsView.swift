@@ -13,7 +13,7 @@ struct BuildingDetailsView: View {
     @State private var isButtonPressed = false
     @State private var showModal = false
     @State private var selectedImage: UIImage?
-    
+    @State private var selectedUser: User?
     
     var buildingId: Int
     
@@ -29,6 +29,9 @@ struct BuildingDetailsView: View {
         .onAppear {
             viewModel.loadBuildingDetails(id: buildingId)
             viewModel.loadUsersInRestaurant(restaurantId: buildingId)
+        }
+        .fullScreenCover(item: $selectedUser) { user in
+                UserDetailsView(user: user)
         }
     }
     
@@ -157,6 +160,8 @@ struct BuildingDetailsView: View {
                             Text(user.company)
                                 .font(Font.custom("manrope", size: 12))
                                 .foregroundColor(.secondary)
+                        }.onTapGesture {
+                            self.selectedUser = user
                         }
                     }
                 }

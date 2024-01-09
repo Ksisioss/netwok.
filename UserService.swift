@@ -4,14 +4,16 @@ class UserService {
     static let shared = UserService()
 
     private(set) var user = User(
-        lastame: "Munch",
-        firstname: "Valentin",
+        id: 356,
+        firstname: "Munch",
+        lastname: "Valentin",
         company: "Google",
         job_title: "Developer",
         email: "abcdef@google.inc",
-        building: "Initial Building",
-        inside: false,
-        avatar: nil
+        restaurant_name: "Initial Building",
+        is_enter: false,
+        avatar_url: "pfp1",
+        restaurantId: 2
     )
 
     private init() {}

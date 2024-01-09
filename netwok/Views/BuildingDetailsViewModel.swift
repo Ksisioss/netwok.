@@ -12,7 +12,7 @@ class BuildingDetailsViewModel: ObservableObject {
     @Published var currentUser: User?
     @Published var usersInRestaurant: [User] = []
     @Published var userCounts: [Int: Int] = [:]
-    let userId = 277
+    let userId = 338
     
     
     func loadCurrentUser() {

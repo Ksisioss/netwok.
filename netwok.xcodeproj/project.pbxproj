@@ -39,6 +39,7 @@
 		6C9A52CB2B4AB28A006907CE /* BuildingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A52CA2B4AB28A006907CE /* BuildingViewModel.swift */; };
 		6C9A52CD2B4AC022006907CE /* BuildingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A52CC2B4AC022006907CE /* BuildingDetailsViewModel.swift */; };
 		859952B12B4D3AE9009199E3 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859952B02B4D3AE9009199E3 /* ImageView.swift */; };
+		859952B32B4D5614009199E3 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859952B22B4D5614009199E3 /* UserDetailsView.swift */; };
 		BEDB89E92B20D535004EC9D8 /* netwokApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB89E82B20D535004EC9D8 /* netwokApp.swift */; };
 		BEDB89EB2B20D535004EC9D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB89EA2B20D535004EC9D8 /* ContentView.swift */; };
 		BEDB89ED2B20D536004EC9D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDB89EC2B20D536004EC9D8 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		6C9A52CA2B4AB28A006907CE /* BuildingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BuildingViewModel.swift; path = netwok/Views/BuildingViewModel.swift; sourceTree = SOURCE_ROOT; };
 		6C9A52CC2B4AC022006907CE /* BuildingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BuildingDetailsViewModel.swift; path = netwok/Views/BuildingDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		859952B02B4D3AE9009199E3 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		859952B22B4D5614009199E3 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		BEDB89E52B20D535004EC9D8 /* netwok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netwok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDB89E82B20D535004EC9D8 /* netwokApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netwokApp.swift; sourceTree = "<group>"; };
 		BEDB89EA2B20D535004EC9D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				6C90454B2B41737D00B3964E /* RestaurantListView.swift */,
 				6C90454D2B41799500B3964E /* SplashView.swift */,
 				859952B02B4D3AE9009199E3 /* ImageView.swift */,
+				859952B22B4D5614009199E3 /* UserDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				859952B32B4D5614009199E3 /* UserDetailsView.swift in Sources */,
 				859952B12B4D3AE9009199E3 /* ImageView.swift in Sources */,
 				E2EC80EA2B4C4D61002B8C68 /* UserService.swift in Sources */,
 				6C9A52C92B4AA75A006907CE /* RestaurantService.swift in Sources */,

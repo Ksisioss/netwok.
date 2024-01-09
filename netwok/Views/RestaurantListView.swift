@@ -16,6 +16,8 @@ struct RestaurantListView: View {
     
     var body: some View {
         VStack{
+            topRectangle()
+            
             List(viewModel.buildings, id: \.id){building in
                 VStack(alignment: .leading){
                     Text(building.name)
@@ -61,17 +63,9 @@ struct RestaurantListView: View {
     }
 }
 
-
-//struct RestaurantListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        // Créez une instance de votre ViewModel avec des données de test
-//        let viewModel = BuildingViewModel()
-//        viewModel.buildings = [
-//            Building(id: 1, name: "Big Fernand", address: "5 Rue Guiraude, 33000 Bordeaux", latitude: 44.83978, longitude: -0.57524,image1: "image1", image2: "image2", image3: "image3", users: [User]),
-//            // Ajoutez d'autres bâtiments de test si nécessaire
-//        ]
-//
-//        // Prévisualisez votre RestaurantListView en utilisant le ViewModel de test
-//        return RestaurantListView(viewModel: viewModel)
-//    }
-//}
+private func topRectangle() -> some View {
+    Rectangle()
+        .frame(width: 60, height: 2)
+        .foregroundColor(Color(red: 190/255, green: 190/255, blue: 190/255))
+        .padding(.vertical, 10)
+}
