@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingRestaurantSheet = false
     @State private var showingSheet = false
-    @State private var selectedBuildingId: Int? // Utiliser un identifiant au lieu de l'objet Building
+    @State private var selectedBuildingId: Int? 
     @StateObject private var viewModel = BuildingViewModel()
     @StateObject private var detailsViewModel = BuildingDetailsViewModel()
        

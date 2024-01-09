@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes
+&lt;array&gt;
+  &lt;string&gt;googlegmail&lt;/string&gt;
+  &lt;string&gt;mailto&lt;/string&gt;
+  &lt;string&gt;instagram&lt;/string&gt;
+  &lt;string&gt;message&lt;/string&gt;
+&lt;/array&gt;&lt;array&gt;
+  &lt;string&gt;googlegmail&lt;/string&gt;
+  &lt;string&gt;mailto&lt;/string&gt;
+  &lt;string&gt;instagram&lt;/string&gt;
+  &lt;string&gt;message&lt;/string&gt;
+&lt;/array&gt;</key>
+	<array>
+		<string>mailto</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Manrope-Bold.ttf</string>
