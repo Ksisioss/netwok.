@@ -81,6 +81,7 @@ struct MapView: UIViewRepresentable {
             annotationView?.markerTintColor = .red
             
             return annotationView
+
         }
         
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

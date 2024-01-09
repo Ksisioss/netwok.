@@ -19,16 +19,24 @@ struct BuildingDetailsView: View {
     
     var body: some View {
         VStack {
-            if let building = viewModel.buildingDetails {
+            if viewModel.isLoading {
+                // Afficher une animation de chargement
+                ProgressView()
+            } else if let building = viewModel.buildingDetails {
+                // Afficher le contenu des détails du bâtiment
                 buildingDetailsContent(building)
             } else {
-                // Afficher un indicateur de chargement ou un message si les données ne sont pas encore chargées
-                Text("Chargement des détails...")
+                // Afficher un message si les détails ne sont pas chargés
+                Text("Impossible de charger les détails.")
             }
         }
         .onAppear {
             viewModel.loadBuildingDetails(id: buildingId)
             viewModel.loadUsersInRestaurant(restaurantId: buildingId)
+            viewModel.loadCurrentUser()
+        }
+        .onDisappear {
+            viewModel.isLoading = false
         }
         .fullScreenCover(item: $selectedUser) { user in
                 UserDetailsView(user: user)

@@ -13,7 +13,7 @@ class BuildingDetailsViewModel: ObservableObject {
     @Published var usersInRestaurant: [User] = []
     @Published var userCounts: [Int: Int] = [:]
     let userId = 338
-    
+    @Published var isLoading = false
     
     func loadCurrentUser() {
         guard let url = URL(string: "https://api-netwok.vercel.app/users/\(userId)") else {
@@ -37,6 +37,7 @@ class BuildingDetailsViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self?.currentUser = decodedUser
                 }
+                
             } catch {
                 print("Decoding user failed: \(error)")
             }
@@ -67,6 +68,7 @@ class BuildingDetailsViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self?.buildingDetails = decodedResponse
                 }
+                
             } catch {
                 print("Decoding failed: \(error)")
             }
@@ -120,6 +122,7 @@ class BuildingDetailsViewModel: ObservableObject {
     }
     
     func loadUsersInRestaurant(restaurantId: Int) {
+        isLoading = true
         guard let url = URL(string: "https://api-netwok.vercel.app/restaurants/\(restaurantId)/users") else {
             print("Invalid URL")
             return
@@ -140,6 +143,7 @@ class BuildingDetailsViewModel: ObservableObject {
                 let decodedUsers = try JSONDecoder().decode([User].self, from: data)
                 DispatchQueue.main.async {
                     self?.usersInRestaurant = decodedUsers
+                    self?.isLoading = false
                 }
             } catch {
                 print("Decoding users failed: \(error)")

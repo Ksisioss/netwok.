@@ -6,19 +6,22 @@ struct UserDetailsView: View {
     
     var body: some View {
         VStack {
+            // The Spacer here pushes the HStack to the top of the VStack
+            Spacer()
+                .frame(height: 44) // Typically, the height of the navigation bar area
+            
             HStack {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }) {
-                    HStack {
-                        Image(systemName: "arrow.left") // System name for left arrow icon
-                            .aspectRatio(contentMode: .fit)
-                    }
+                    Image(systemName: "arrow.left") // System name for left arrow icon
+                        .imageScale(.large) // To adjust the size of the icon
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.black) // Here you can set the color of the arrow
                 }
                 .padding()
-                Spacer()
+                Spacer() // Pushes the button to the left
             }
-            
             VStack(alignment: .leading, spacing: 10) {
                 // Avatar
                 Image(uiImage: UIImage(named: user.avatar_url) ?? UIImage(named: "defaultAvatar")!)
@@ -62,7 +65,7 @@ struct UserDetailsView: View {
                 }
             }
             .padding()
-        }
+        }.edgesIgnoringSafeArea(.top)
     }
 }
 
