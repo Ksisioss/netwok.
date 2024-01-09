@@ -92,34 +92,45 @@ class BuildingDetailsViewModel: ObservableObject {
     
     
     private func performRestaurantAction(endpoint: String, userId: Int, isEntering: Bool, restaurantId: Int) {
-        // Construction de l'URL de la requête
         guard let url = URL(string: "https://api-netwok.vercel.app\(endpoint)") else {
             print("Invalid URL")
             return
         }
-        
-        // Création de la requête
+
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: Int] = ["userId": userId]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        
-        // Envoi de la requête
+
+        print("Request Body: \(String(describing: String(data: request.httpBody ?? Data(), encoding: .utf8)))") // Ajout pour le débogage
+
         URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            // Gestion des erreurs
             if let error = error {
-                print("Error making request: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    print("Error making request: \(error.localizedDescription)")
+                }
                 return
             }
-            
-            // Mise à jour de l'état de l'utilisateur
+
+            if let httpResponse = response as? HTTPURLResponse {
+                print("Response Status Code: \(httpResponse.statusCode)") // Ajout pour le débogage
+                if httpResponse.statusCode != 200 {
+                    DispatchQueue.main.async {
+                        print("Error: Server returned status code \(httpResponse.statusCode)")
+                    }
+                    return
+                }
+            }
+
             DispatchQueue.main.async {
                 self?.currentUser?.is_enter = isEntering
                 self?.currentUser?.restaurantId = isEntering ? restaurantId : nil
             }
         }.resume()
     }
+
+
     
     func loadUsersInRestaurant(restaurantId: Int) {
         isLoading = true

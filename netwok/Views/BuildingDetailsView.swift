@@ -183,7 +183,7 @@ struct BuildingDetailsView: View {
     
     
     private func joinButton(restaurantId: Int) -> some View {
-        let userId = 277 // ID utilisateur fixé
+        let userId = 338 // ID utilisateur fixé
         
         return Button(viewModel.isUserInRestaurant(restaurantId: restaurantId) ? "Leave" : "Join") {
             if viewModel.isUserInRestaurant(restaurantId: restaurantId) {
