@@ -69,9 +69,6 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .topTrailing)
                     }
                     
-                    
-                    
-                    
                 }
                 .sheet(isPresented: $showingSheet) {
                     if let buildingId = selectedBuildingId {
