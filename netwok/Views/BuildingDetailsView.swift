@@ -49,7 +49,6 @@ struct BuildingDetailsView: View {
             ImageViewer(image: selectedImage!, showModal: $showModal)
             : nil
         )
-        
     }
     
     private func topRectangle() -> some View {
@@ -96,33 +95,41 @@ struct BuildingDetailsView: View {
                     }
             }
             .clipped()
-
+            
             VStack {
-                Image(uiImage: UIImage(named: building.image2)!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 55)
-                    .cornerRadius(10)
-                    .clipped()
-                    .onTapGesture {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            self.selectedImage = UIImage(named: building.image2)
-                            self.showModal = true
+                if let image2 = UIImage(named: building.image2) {
+                    Image(uiImage: image2)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 120, height: 55)
+                        .cornerRadius(10)
+                        .clipped()
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                self.selectedImage = image2
+                                self.showModal = true
+                            }
                         }
-                    }
-
-                Image(uiImage: UIImage(named: building.image3)!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 55)
-                    .cornerRadius(10)
-                    .clipped()
-                    .onTapGesture {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            self.selectedImage = UIImage(named: building.image3)
-                            self.showModal = true
+                } else {
+                    Text("Image not found")
+                }
+                
+                if let image3 = UIImage(named: building.image3) {
+                    Image(uiImage: image3)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 120, height: 55)
+                        .cornerRadius(10)
+                        .clipped()
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                self.selectedImage = image3
+                                self.showModal = true
+                            }
                         }
-                    }
+                } else {
+                    Text("Image not found")
+                }
             }
         }
     }
