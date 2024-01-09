@@ -151,28 +151,13 @@ struct BuildingDetailsView: View {
     
     private func userSection() -> some View {
         VStack(alignment: .leading) {
-            VStack {
-                Text("Personnes présentes")
-                    .font(Font.custom("Manrope-SemiBold", size: 16))
-            }
-            
+            Text("Personnes présentes")
+                .font(Font.custom("Manrope-SemiBold", size: 16))
+
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(viewModel.usersInRestaurant, id: \.id) { user in
-                        VStack {
-                            Image(uiImage: UIImage(named: user.avatar_url) ?? UIImage(named: "defaultAvatar")!)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 62, height: 62)
-                                .clipShape(Circle())
-                            Text(user.firstname)
-                                .font(Font.custom("Manrope-SemiBold", size: 14))
-                            Text(user.company)
-                                .font(Font.custom("manrope", size: 12))
-                                .foregroundColor(.secondary)
-                        }.onTapGesture {
-                            self.selectedUser = user
-                        }
+                        userView(user)
                     }
                 }
                 .frame(minHeight: 0, maxHeight: .greatestFiniteMagnitude)
@@ -182,10 +167,28 @@ struct BuildingDetailsView: View {
         }
         .padding(.horizontal, 75)
     }
+
+    private func userView(_ user: User) -> some View {
+        VStack {
+            Image(uiImage: UIImage(named: user.avatar_url) ?? UIImage(named: "defaultAvatar")!)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 62, height: 62)
+                .clipShape(Circle())
+            Text(user.firstname)
+                .font(Font.custom("Manrope-SemiBold", size: 14))
+            Text(user.company)
+                .font(Font.custom("manrope", size: 12))
+                .foregroundColor(.secondary)
+        }
+        .onTapGesture {
+            self.selectedUser = user
+        }
+    }
     
     
     private func joinButton(restaurantId: Int) -> some View {
-        let userId = 338 // ID utilisateur fixé
+        let userId = 1643 // ID utilisateur fixé
         
         return Button(viewModel.isUserInRestaurant(restaurantId: restaurantId) ? "Leave" : "Join") {
             if viewModel.isUserInRestaurant(restaurantId: restaurantId) {
@@ -193,7 +196,10 @@ struct BuildingDetailsView: View {
             } else {
                 viewModel.enterRestaurant(restaurantId: restaurantId, userId: userId)
             }
+            viewModel.loadUsersInRestaurant(restaurantId: restaurantId) // Refresh the user list
         }
+
+
         .font(.custom("Manrope-Medium", size: 13))
         .foregroundColor(.black)
         .frame(width: 73, height: 23)

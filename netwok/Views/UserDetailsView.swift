@@ -20,8 +20,6 @@ struct UserDetailsView: View {
                 }
                 .padding()
             }
-            
-            
             .navigationBarHidden(true)
         }
     }
@@ -78,26 +76,25 @@ struct UserDetailsView: View {
     var informationGrid: some View {
         VStack {
             HStack {
-                Spacer()
                 VStack(alignment: .leading, spacing: 20) {
                     detailItem(title: "Company", value: user.company, iconName: "building.2")
                     detailItem(title: "Email", value: user.email, isEmail: true, iconName: "envelope")
                 }
-                Spacer()
-                Spacer()
-                Spacer()
+                .padding(.trailing, 17)
+
                 VStack(alignment: .leading, spacing: 20) {
                     detailItem(title: "Job Title", value: user.job_title, iconName: "briefcase")
                     if user.is_enter {
                         detailItem(title: "Restaurant", value: user.restaurant_name, iconName: "fork.knife")
                     }
                 }
-                Spacer()
+                .padding(.leading, 17)
             }
-            Spacer()
-        }.padding(.horizontal)
-            .padding(.top, -40)
+        }
+        .padding(.horizontal)
+        .padding(.top, -40)
     }
+
     
     func detailItem(title: String, value: String, isEmail: Bool = false, iconName: String) -> some View {
         HStack {
