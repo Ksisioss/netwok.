@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State private var input1: String = ""
-    @State private var input2: String = ""
-    @State private var input3: String = ""
+    
     
     @State private var isEditing = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+
     private let userService = UserService.shared
     
     @State private var editableCompany: String = "Google"
@@ -21,7 +22,7 @@ struct AccountView: View {
     
     
     var body: some View {
-        VStack{
+        VStack {
             VStack(spacing: 5) {
                 Image(uiImage: UIImage(named: "appIconNoodlesWok")!)
                     .imageScale(.large)
@@ -63,11 +64,11 @@ struct AccountView: View {
                         userService.updateUserProfile(company: editableCompany, jobTitle: editableJobTitle, email: editableEmail) { result in
                             switch result {
                             case .success(_):
-                                // Handle successful update
-                                print("User profile updated")
+                                alertMessage = "User profile updated successfully !"
+                                showAlert = true
                             case .failure(let error):
-                                // Handle error
-                                print("Error updating user profile: \(error)")
+                                alertMessage = "Failed to update profile: \(error.localizedDescription)"
+                                showAlert = true
                             }
                         }
                     }
@@ -77,7 +78,6 @@ struct AccountView: View {
                 .foregroundColor(.black)
                 .frame(width: 73, height: 23)
                 .buttonStyle(ThreeDButtonStyle(fillColor: Color(red: 245/255, green: 245/255, blue: 245/255)))
-                
             }
             VStack{
                 HStack {
@@ -89,6 +89,8 @@ struct AccountView: View {
                     TextField("Company", text: isEditing ? $editableCompany : .constant(userService.user.company))
                         .disabled(!isEditing)
                         .font(Font.custom("Manrope-SemiBold", size: 12))
+                       
+
                 }                .padding(.horizontal, 15)
                     .padding(.vertical, 5)
                     .background(Color(red: 250/255, green: 250/255, blue: 250/255))
@@ -98,6 +100,7 @@ struct AccountView: View {
                             .stroke(Color.black, lineWidth: 1)
                     )
                     .frame(width: 325, height: 35)
+                    .background(isEditing ? Color.green.opacity(0.2) : Color.clear)
                 
                 
                 HStack {
@@ -109,6 +112,8 @@ struct AccountView: View {
                     TextField("Job Title", text: isEditing ? $editableJobTitle : .constant(userService.user.job_title))
                         .disabled(!isEditing)
                         .font(Font.custom("Manrope-SemiBold", size: 12))
+                        
+
                 }                .padding(.horizontal, 15)
                     .padding(.vertical, 5)
                     .background(Color(red: 250/255, green: 250/255, blue: 250/255))
@@ -118,6 +123,7 @@ struct AccountView: View {
                             .stroke(Color.black, lineWidth: 1)
                     )
                     .frame(width: 325, height: 35)
+                    .background(isEditing ? Color.green.opacity(0.2) : Color.clear)
                 
                 
                 HStack {
@@ -129,7 +135,9 @@ struct AccountView: View {
                     TextField("Email", text: isEditing ? $editableEmail : .constant(userService.user.email))
                         .disabled(!isEditing)
                         .font(Font.custom("Manrope-SemiBold", size: 12))
-                }                .padding(.horizontal, 15)
+                        
+
+                }   .padding(.horizontal, 15)
                     .padding(.vertical, 5)
                     .background(Color(red: 250/255, green: 250/255, blue: 250/255))
                     .cornerRadius(5)
@@ -138,9 +146,17 @@ struct AccountView: View {
                             .stroke(Color.black, lineWidth: 1)
                     )
                     .frame(width: 325, height: 35)
+                    .background(isEditing ? Color.green.opacity(0.2) : Color.clear)
             }
             .padding(.vertical, 50)
             Spacer()
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Update Profile"),
+                message: Text(alertMessage),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
 }
