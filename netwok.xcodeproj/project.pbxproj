@@ -38,6 +38,8 @@
 		6C9A52C92B4AA75A006907CE /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A52C82B4AA75A006907CE /* RestaurantService.swift */; };
 		6C9A52CB2B4AB28A006907CE /* BuildingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A52CA2B4AB28A006907CE /* BuildingViewModel.swift */; };
 		6C9A52CD2B4AC022006907CE /* BuildingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A52CC2B4AC022006907CE /* BuildingDetailsViewModel.swift */; };
+		6CBD9F192B4D873400F9A895 /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD9F182B4D873400F9A895 /* SearchUserView.swift */; };
+		6CBD9F1B2B4D891900F9A895 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD9F1A2B4D891900F9A895 /* UserViewModel.swift */; };
 		859952B12B4D3AE9009199E3 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859952B02B4D3AE9009199E3 /* ImageView.swift */; };
 		859952B32B4D5614009199E3 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859952B22B4D5614009199E3 /* UserDetailsView.swift */; };
 		BEDB89E92B20D535004EC9D8 /* netwokApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB89E82B20D535004EC9D8 /* netwokApp.swift */; };
@@ -88,6 +90,8 @@
 		6C9A52C82B4AA75A006907CE /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantService.swift; path = netwok/Views/RestaurantService.swift; sourceTree = SOURCE_ROOT; };
 		6C9A52CA2B4AB28A006907CE /* BuildingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BuildingViewModel.swift; path = netwok/Views/BuildingViewModel.swift; sourceTree = SOURCE_ROOT; };
 		6C9A52CC2B4AC022006907CE /* BuildingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BuildingDetailsViewModel.swift; path = netwok/Views/BuildingDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		6CBD9F182B4D873400F9A895 /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
+		6CBD9F1A2B4D891900F9A895 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserViewModel.swift; path = netwok/Views/UserViewModel.swift; sourceTree = SOURCE_ROOT; };
 		859952B02B4D3AE9009199E3 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		859952B22B4D5614009199E3 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		BEDB89E52B20D535004EC9D8 /* netwok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netwok.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +226,7 @@
 			children = (
 				6C9A52CA2B4AB28A006907CE /* BuildingViewModel.swift */,
 				6C9A52CC2B4AC022006907CE /* BuildingDetailsViewModel.swift */,
+				6CBD9F1A2B4D891900F9A895 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				6C90454D2B41799500B3964E /* SplashView.swift */,
 				859952B02B4D3AE9009199E3 /* ImageView.swift */,
 				859952B22B4D5614009199E3 /* UserDetailsView.swift */,
+				6CBD9F182B4D873400F9A895 /* SearchUserView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,7 +416,9 @@
 				E2EC80EA2B4C4D61002B8C68 /* UserService.swift in Sources */,
 				6C9A52C92B4AA75A006907CE /* RestaurantService.swift in Sources */,
 				BEEA294F2B2A1ACB00471829 /* User.swift in Sources */,
+				6CBD9F192B4D873400F9A895 /* SearchUserView.swift in Sources */,
 				BEDB89EB2B20D535004EC9D8 /* ContentView.swift in Sources */,
+				6CBD9F1B2B4D891900F9A895 /* UserViewModel.swift in Sources */,
 				BEEA29512B2A1C7E00471829 /* Building.swift in Sources */,
 				BEEA29532B2A1F1A00471829 /* BuildingDetailsView.swift in Sources */,
 				6C74C2E72B3F017100835281 /* AccountView.swift in Sources */,

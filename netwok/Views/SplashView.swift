@@ -14,7 +14,7 @@ struct SplashView: View {
                     Image(uiImage: UIImage(named: "appIconNoodlesWok")!)
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
-                    Text("netwok.").bold().font(Font.custom("Manrope-SemiBold", size: 48))
+                    Text("netwok.").font(Font.custom("Manrope-SemiBold", size: 48))
                     Text("Eat and meet").font(Font.custom("Manrope-SemiBold", size: 20))
                 }
                 .padding(.bottom, 15)
