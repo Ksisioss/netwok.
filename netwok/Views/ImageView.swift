@@ -33,3 +33,4 @@ public struct ImageViewer: View {
         .animation(.easeInOut(duration: 0.3), value: showModal)
     }
 }
+

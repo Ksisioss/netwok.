@@ -196,3 +196,5 @@ class BuildingDetailsViewModel: ObservableObject {
     
 }
 
+
+
