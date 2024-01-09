@@ -10,10 +10,11 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingRestaurantSheet = false
     @State private var showingSheet = false
+    @State private var showingSearchUserView = false
     @State private var selectedBuildingId: Int? // Utiliser un identifiant au lieu de l'objet Building
     @StateObject private var viewModel = BuildingViewModel()
     @StateObject private var detailsViewModel = BuildingDetailsViewModel()
-       
+    
     
     
     var body: some View {
@@ -65,6 +66,24 @@ struct ContentView: View {
                         }
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .topTrailing)
+                        
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    showingSearchUserView = true
+                                }) {
+                                    Image(systemName: "magnifyingglass")
+                                        .foregroundColor(.black)
+                                        .padding()
+                                        .background(Color.white)
+                                        .clipShape(Circle())
+                                }
+                                .shadow(radius: 6, y: 4)
+                            }
+                            .padding()
+                        }
                     }
                     
                 }
@@ -81,6 +100,10 @@ struct ContentView: View {
                 .sheet(isPresented: $showingRestaurantSheet) {
                     // Vue pour afficher les restaurants
                     RestaurantListView(viewModel: viewModel)
+                }
+                .sheet(isPresented: $showingSearchUserView) {
+                    // Vue pour afficher la recherche d'utilisateurs
+                    SearchUserView()
                 }
             }
         }

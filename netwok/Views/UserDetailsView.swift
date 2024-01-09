@@ -67,7 +67,8 @@ struct UserDetailsView: View {
             .padding()
             
             Spacer()
-        }.edgesIgnoringSafeArea(.top)
+        }
+        .edgesIgnoringSafeArea(.top) .navigationBarBackButtonHidden(true)
     }
 }
 
