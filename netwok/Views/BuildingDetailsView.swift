@@ -14,6 +14,7 @@ struct BuildingDetailsView: View {
     @State private var showModal = false
     @State private var selectedImage: UIImage?
     
+    
     var buildingId: Int
     
     var body: some View {
@@ -27,6 +28,7 @@ struct BuildingDetailsView: View {
         }
         .onAppear {
             viewModel.loadBuildingDetails(id: buildingId)
+            viewModel.loadUsersInRestaurant(restaurantId: buildingId)
         }
     }
     
@@ -41,7 +43,7 @@ struct BuildingDetailsView: View {
             
             userSection()
             
-            joinButton()
+            joinButton(restaurantId: building.id)
             
             Spacer()
         }.overlay(
@@ -135,47 +137,52 @@ struct BuildingDetailsView: View {
     }
     
     private func userSection() -> some View {
-        VStack(alignment: .leading){
-            VStack{
+        VStack(alignment: .leading) {
+            VStack {
                 Text("Personnes présentes")
                     .font(Font.custom("Manrope-SemiBold", size: 16))
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(0..<5, id: \.self) { _ in
+                    ForEach(viewModel.usersInRestaurant, id: \.id) { user in
                         VStack {
-                            Image(uiImage: UIImage(named: "pfp")!)
+                            Image(uiImage: UIImage(named: user.avatar_url) ?? UIImage(named: "defaultAvatar")!)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 62, height: 62)
                                 .clipShape(Circle())
-                            Text("A.Peko")
+                            Text(user.firstname)
                                 .font(Font.custom("Manrope-SemiBold", size: 14))
-                            Text("Google")
+                            Text(user.company)
                                 .font(Font.custom("manrope", size: 12))
                                 .foregroundColor(.secondary)
                         }
                     }
-                    
-                    
                 }
                 .frame(minHeight: 0, maxHeight: .greatestFiniteMagnitude)
             }
             .frame(height: 125)
             .transition(.move(edge: .bottom))
-        }.padding(.horizontal, 75)
+        }
+        .padding(.horizontal, 75)
     }
     
-    private func joinButton() -> some View {
-        Button(isButtonPressed ? "Left" : "Join") {
-            isButtonPressed.toggle()
+    
+    private func joinButton(restaurantId: Int) -> some View {
+        let userId = 277 // ID utilisateur fixé
+        
+        return Button(viewModel.isUserInRestaurant(restaurantId: restaurantId) ? "Leave" : "Join") {
+            if viewModel.isUserInRestaurant(restaurantId: restaurantId) {
+                viewModel.exitRestaurant(restaurantId: restaurantId, userId: userId)
+            } else {
+                viewModel.enterRestaurant(restaurantId: restaurantId, userId: userId)
+            }
         }
         .font(.custom("Manrope-Medium", size: 13))
         .foregroundColor(.black)
         .frame(width: 73, height: 23)
-        .buttonStyle(ThreeDButtonStyle(fillColor: isButtonPressed ? Color(red: 255/255, green: 236/255, blue: 236/255) : Color(red: 233/255, green: 255/255, blue: 235/255)))
+        .buttonStyle(ThreeDButtonStyle(fillColor: viewModel.isUserInRestaurant(restaurantId: restaurantId) ? Color(red: 255/255, green: 236/255, blue: 236/255) : Color(red: 233/255, green: 255/255, blue: 235/255)))
         .padding(.top, 25)
     }
-    
 }
