@@ -31,7 +31,7 @@ struct RestaurantListView: View {
                             .frame(width: 12)
                         
                         // Changer avec le compte d'utilisateurs dans chaque resto
-                        Text("13")
+                        Text("\(String(detailsViewModel.userCounts[building.id, default: 0]))")
                             .font(Font.custom("Manrope-SemiBold", size: 12))
                             .foregroundStyle(.black)
                     }
@@ -41,6 +41,9 @@ struct RestaurantListView: View {
                     self.selectedBuildingId = building.id // Utilisez l'ID du bâtiment
                     self.detailsViewModel.loadBuildingDetails(id: building.id)
                     self.showingDetails = true
+                }
+                .onAppear {
+                    detailsViewModel.loadUserCount(restaurantId: building.id)
                 }
             }
             .sheet(isPresented: $showingDetails) {
@@ -54,20 +57,21 @@ struct RestaurantListView: View {
                 }
             }
         }
-    }
-}
-
-
-struct RestaurantListView_Previews: PreviewProvider {
-    static var previews: some View {
-        // Créez une instance de votre ViewModel avec des données de test
-        let viewModel = BuildingViewModel()
-        viewModel.buildings = [
-            Building(id: 1, name: "Big Fernand", address: "5 Rue Guiraude, 33000 Bordeaux", latitude: 44.83978, longitude: -0.57524,image1: "image1", image2: "image2", image3: "image3"),
-            // Ajoutez d'autres bâtiments de test si nécessaire
-        ]
         
-        // Prévisualisez votre RestaurantListView en utilisant le ViewModel de test
-        return RestaurantListView(viewModel: viewModel)
     }
 }
+
+
+//struct RestaurantListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        // Créez une instance de votre ViewModel avec des données de test
+//        let viewModel = BuildingViewModel()
+//        viewModel.buildings = [
+//            Building(id: 1, name: "Big Fernand", address: "5 Rue Guiraude, 33000 Bordeaux", latitude: 44.83978, longitude: -0.57524,image1: "image1", image2: "image2", image3: "image3", users: [User]),
+//            // Ajoutez d'autres bâtiments de test si nécessaire
+//        ]
+//
+//        // Prévisualisez votre RestaurantListView en utilisant le ViewModel de test
+//        return RestaurantListView(viewModel: viewModel)
+//    }
+//}

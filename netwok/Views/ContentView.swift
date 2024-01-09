@@ -14,7 +14,7 @@ struct ContentView: View {
     @StateObject private var viewModel = BuildingViewModel()
     @StateObject private var detailsViewModel = BuildingDetailsViewModel()
     
-    @State private var current_user = User(lastame: "Abc", firstname: "Def", company: "Google", job_title: "Developer", email: "abcdef@google.inc", building: "1", inside: false)
+//    @State private var current_user = User(id:"1", lastame: "Abc", firstname: "Def", company: "Google", job_title: "Developer", email: "abcdef@google.inc", building: "1", inside: false)
     
     
     
