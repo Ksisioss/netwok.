@@ -29,6 +29,10 @@ struct BuildingDetailsView: View {
         .onAppear {
             viewModel.loadBuildingDetails(id: buildingId)
             viewModel.loadUsersInRestaurant(restaurantId: buildingId)
+            viewModel.loadCurrentUser()
+        }
+        .onDisappear {
+            viewModel.isLoading = false
         }
     }
     

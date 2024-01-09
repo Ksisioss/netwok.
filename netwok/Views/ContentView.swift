@@ -13,9 +13,7 @@ struct ContentView: View {
     @State private var selectedBuildingId: Int? // Utiliser un identifiant au lieu de l'objet Building
     @StateObject private var viewModel = BuildingViewModel()
     @StateObject private var detailsViewModel = BuildingDetailsViewModel()
-    
-//    @State private var current_user = User(id:"1", lastame: "Abc", firstname: "Def", company: "Google", job_title: "Developer", email: "abcdef@google.inc", building: "1", inside: false)
-    
+       
     
     
     var body: some View {
