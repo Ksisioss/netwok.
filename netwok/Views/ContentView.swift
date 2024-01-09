@@ -24,7 +24,7 @@ struct ContentView: View {
                     Image(uiImage: UIImage(named: "appIconNoodlesWok")!)
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
-                    Text("netwok.").bold().font(Font.custom("Manrope-SemiBold", size: 48))
+                    Text("netwok.").font(Font.custom("Manrope-SemiBold", size: 48))
                 }
                 Spacer()
                 VStack {

@@ -20,8 +20,11 @@ struct SearchUserView: View {
                     NavigationLink(destination: UserDetailsView(user: user)) {
                         VStack(alignment: .leading) {
                             Text("\(user.firstname) \(user.lastname)")
+                                .font(Font.custom("Manrope-Bold", size: 16))
                             Text("Company: \(user.company)")
+                                .font(Font.custom("Manrope-Medium", size: 16))
                             Text("Position: \(user.job_title)")
+                                .font(Font.custom("Manrope-Medium", size: 16))
                         }
                     }
                 }

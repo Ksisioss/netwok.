@@ -125,6 +125,7 @@ struct BuildingDetailsView: View {
                         }
                 } else {
                     Text("Image not found")
+                        .font(Font.custom("Manrope-SemiBold", size: 18))
                 }
                 
                 if let image3 = UIImage(named: building.image3) {
@@ -142,6 +143,7 @@ struct BuildingDetailsView: View {
                         }
                 } else {
                     Text("Image not found")
+                        .font(Font.custom("Manrope-SemiBold", size: 18))
                 }
             }
         }

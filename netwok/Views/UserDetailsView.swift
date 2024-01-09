@@ -32,35 +32,41 @@ struct UserDetailsView: View {
                 
                 // User Details
                 HStack {
-                    Text("First Name: ").bold()
+                    Text("First Name: ").font(Font.custom("Manrope-Bold", size: 18))
                     Text(user.firstname)
+                        .font(Font.custom("Manrope-Regular", size: 18))
                 }
                 
                 HStack {
-                    Text("Last Name: ").bold()
+                    Text("Last Name: ").font(Font.custom("Manrope-Bold", size: 18))
                     Text(user.lastname)
+                        .font(Font.custom("Manrope-Regular", size: 18))
                 }
                 
                 HStack {
-                    Text("Company: ").bold()
+                    Text("Company: ").font(Font.custom("Manrope-Bold", size: 18))
                     Text(user.company)
+                        .font(Font.custom("Manrope-Regular", size: 18))
                 }
                 
                 HStack {
-                    Text("Job Title: ").bold()
+                    Text("Job Title: ").font(Font.custom("Manrope-Bold", size: 18))
                     Text(user.job_title)
+                        .font(Font.custom("Manrope-Regular", size: 18))
                 }
                 
                 HStack {
-                    Text("Email: ").bold()
+                    Text("Email: ").font(Font.custom("Manrope-Bold", size: 18))
                     Text(user.email)
+                        .font(Font.custom("Manrope-Regular", size: 18))
                 }
                 
                 // Restaurant Information
                 if user.is_enter {
                     HStack {
-                        Text("Restaurant: ").bold()
+                        Text("Restaurant: ").font(Font.custom("Manrope-Bold", size: 18))
                         Text(user.restaurant_name)
+                            .font(Font.custom("Manrope-Regular", size: 18))
                     }
                 }
             }
