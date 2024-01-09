@@ -65,6 +65,8 @@ struct UserDetailsView: View {
                 }
             }
             .padding()
+            
+            Spacer()
         }.edgesIgnoringSafeArea(.top)
     }
 }
