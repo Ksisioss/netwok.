@@ -25,10 +25,10 @@ public struct ImageViewer: View {
             Image(uiImage: image)
                 .resizable()
                 .scaledToFit()
-                .cornerRadius(20) // Rounded corners for the image
+                .cornerRadius(20)
                 .padding()
-                .shadow(radius: 10) // Optional shadow for depth
-                .scaleEffect(showModal ? 1 : 0) // Zoom in when showModal is true
+                .shadow(radius: 10)
+                .scaleEffect(showModal ? 1 : 0)
         }
         .animation(.easeInOut(duration: 0.3), value: showModal)
     }

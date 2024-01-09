@@ -94,12 +94,10 @@ struct BuildingDetailsView: View {
                             self.showModal = true
                         }
                     }
-                
             }
             .clipped()
-            
+
             VStack {
-                
                 Image(uiImage: UIImage(named: building.image2)!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -108,11 +106,11 @@ struct BuildingDetailsView: View {
                     .clipped()
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 0.3)) {
-                            self.selectedImage = UIImage(named: building.image1)
+                            self.selectedImage = UIImage(named: building.image2)
                             self.showModal = true
                         }
                     }
-                
+
                 Image(uiImage: UIImage(named: building.image3)!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -121,13 +119,11 @@ struct BuildingDetailsView: View {
                     .clipped()
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 0.3)) {
-                            self.selectedImage = UIImage(named: building.image1)
+                            self.selectedImage = UIImage(named: building.image3)
                             self.showModal = true
                         }
                     }
-                
             }
-            
         }
     }
     
