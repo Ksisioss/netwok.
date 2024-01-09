@@ -3,7 +3,7 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
     @Binding var showingSheet: Bool
-    @Binding var selectedBuildingId: Int? // Utilisez un identifiant ici
+    @Binding var selectedBuildingId: Int? 
     @ObservedObject var viewModel: BuildingViewModel
     var onBuildingSelected: (Int) -> Void
     
