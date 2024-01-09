@@ -11,6 +11,8 @@ struct BuildingDetailsView: View {
     @ObservedObject var viewModel: BuildingDetailsViewModel
     
     @State private var isButtonPressed = false
+    @State private var showModal = false
+    @State private var selectedImage: UIImage?
     
     
     var buildingId: Int
@@ -44,7 +46,12 @@ struct BuildingDetailsView: View {
             joinButton(restaurantId: building.id)
             
             Spacer()
-        }
+        }.overlay(
+            showModal && selectedImage != nil ?
+            ImageViewer(image: selectedImage!, showModal: $showModal)
+            : nil
+        )
+        
     }
     
     private func topRectangle() -> some View {
@@ -83,9 +90,15 @@ struct BuildingDetailsView: View {
                     .frame(width: 120, height: 120) // Taille de l'image identique au rectangle
                     .cornerRadius(10) // Arrondi des coins pour l'image
                     .clipped() // Coupe l'excès d'image
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            self.selectedImage = UIImage(named: building.image1)
+                            self.showModal = true
+                        }
+                    }
             }
             .clipped()
-            
+
             VStack {
                 Image(uiImage: UIImage(named: building.image2)!)
                     .resizable()
@@ -93,14 +106,25 @@ struct BuildingDetailsView: View {
                     .frame(width: 120, height: 55)
                     .cornerRadius(10)
                     .clipped()
-                
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            self.selectedImage = UIImage(named: building.image2)
+                            self.showModal = true
+                        }
+                    }
+
                 Image(uiImage: UIImage(named: building.image3)!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 120, height: 55)
                     .cornerRadius(10)
                     .clipped()
-                
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            self.selectedImage = UIImage(named: building.image3)
+                            self.showModal = true
+                        }
+                    }
             }
         }
     }

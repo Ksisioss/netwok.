@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State private var input1: String = ""
-    @State private var input2: String = ""
-    @State private var input3: String = ""
+    
+    
+    @State private var isEditing = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+
+    private let userService = UserService.shared
+    
+    @State private var editableCompany: String = "Google"
+    @State private var editableJobTitle: String = "Developer"
+    @State private var editableEmail: String = "abcdef@google.inc"
+    
     
     var body: some View {
-        VStack{
+        VStack {
             VStack(spacing: 5) {
                 Image(uiImage: UIImage(named: "appIconNoodlesWok")!)
                     .imageScale(.large)
@@ -35,7 +44,7 @@ struct AccountView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 62, height: 62)
                     .clipShape(Circle())
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     HStack(spacing: 0) {
                         Text("Firstname : ")
                         Text("Valentin").bold()
@@ -49,14 +58,26 @@ struct AccountView: View {
                     .font(Font.custom("Manrope-Regular", size: 14))
                 }
                 .padding(.horizontal, 5)
-                Button("Edit"){
-                    
+                
+                Button(isEditing ? "Save" : "Edit") {
+                    if isEditing {
+                        userService.updateUserProfile(company: editableCompany, jobTitle: editableJobTitle, email: editableEmail) { result in
+                            switch result {
+                            case .success(_):
+                                alertMessage = "User profile updated successfully !"
+                                showAlert = true
+                            case .failure(let error):
+                                alertMessage = "Failed to update profile: \(error.localizedDescription)"
+                                showAlert = true
+                            }
+                        }
+                    }
+                    isEditing.toggle()
                 }
                 .font(.custom("Manrope-Medium", size: 13))
                 .foregroundColor(.black)
                 .frame(width: 73, height: 23)
                 .buttonStyle(ThreeDButtonStyle(fillColor: Color(red: 245/255, green: 245/255, blue: 245/255)))
-                
             }
             VStack{
                 HStack {
@@ -64,38 +85,45 @@ struct AccountView: View {
                         .foregroundColor(.black)
                         .frame(width: 16)
                     Spacer().frame(width: 20)
-                    TextField("company", text: $input1)
-                        .font(Font.custom("Manrope-SemiBold", size: 12))
                     
-                }
-                .padding(.horizontal, 15)
-                .padding(.vertical, 5)
-                .background(Color(red: 250/255, green: 250/255, blue: 250/255))
-                .cornerRadius(5)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.black, lineWidth: 1)
-                )
-                .frame(width: 325, height: 35)
+                    TextField("Company", text: isEditing ? $editableCompany : .constant(userService.user.company))
+                        .disabled(!isEditing)
+                        .font(Font.custom("Manrope-SemiBold", size: 12))
+                       
+
+                }                .padding(.horizontal, 15)
+                    .padding(.vertical, 5)
+                    .background(Color(red: 250/255, green: 250/255, blue: 250/255))
+                    .cornerRadius(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
+                    .frame(width: 325, height: 35)
+                    .background(isEditing ? Color.green.opacity(0.2) : Color.clear)
+                
                 
                 HStack {
                     Image(systemName: "suitcase.fill")
                         .foregroundColor(.black)
                         .frame(width: 16)
                     Spacer().frame(width: 20)
-                    TextField("job title", text: $input2)
-                        .font(Font.custom("Manrope-SemiBold", size: 12))
                     
-                }
-                .padding(.horizontal, 15)
-                .padding(.vertical, 5)
-                .background(Color(red: 250/255, green: 250/255, blue: 250/255))
-                .cornerRadius(5)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.black, lineWidth: 1)
-                )
-                .frame(width: 325, height: 35)
+                    TextField("Job Title", text: isEditing ? $editableJobTitle : .constant(userService.user.job_title))
+                        .disabled(!isEditing)
+                        .font(Font.custom("Manrope-SemiBold", size: 12))
+                        
+
+                }                .padding(.horizontal, 15)
+                    .padding(.vertical, 5)
+                    .background(Color(red: 250/255, green: 250/255, blue: 250/255))
+                    .cornerRadius(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
+                    .frame(width: 325, height: 35)
+                    .background(isEditing ? Color.green.opacity(0.2) : Color.clear)
                 
                 
                 HStack {
@@ -103,29 +131,39 @@ struct AccountView: View {
                         .foregroundColor(.black)
                         .frame(width: 16)
                     Spacer().frame(width: 20)
-
-                    TextField("email", text: $input3)
-                        .font(Font.custom("Manrope-SemiBold", size: 12))
                     
-                }
-                .padding(.horizontal, 15)
-                .padding(.vertical, 5)
-                .background(Color(red: 250/255, green: 250/255, blue: 250/255))
-                .cornerRadius(5)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.black, lineWidth: 1)
-                )
-                .frame(width: 325, height: 35)
-                
+                    TextField("Email", text: isEditing ? $editableEmail : .constant(userService.user.email))
+                        .disabled(!isEditing)
+                        .font(Font.custom("Manrope-SemiBold", size: 12))
+                        
 
+                }   .padding(.horizontal, 15)
+                    .padding(.vertical, 5)
+                    .background(Color(red: 250/255, green: 250/255, blue: 250/255))
+                    .cornerRadius(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
+                    .frame(width: 325, height: 35)
+                    .background(isEditing ? Color.green.opacity(0.2) : Color.clear)
             }
             .padding(.vertical, 50)
             Spacer()
         }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Update Profile"),
+                message: Text(alertMessage),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 
-#Preview {
-    AccountView()
+
+struct AccountView_Previews: PreviewProvider {
+    static var previews: some View {
+        AccountView()
+    }
 }
