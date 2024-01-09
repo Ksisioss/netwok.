@@ -126,6 +126,7 @@ class BuildingDetailsViewModel: ObservableObject {
     }
     
     func loadUsersInRestaurant(restaurantId: Int) {
+        isLoading = true
         guard let url = URL(string: "https://api-netwok.vercel.app/restaurants/\(restaurantId)/users") else {
             print("Invalid URL")
             return
@@ -146,6 +147,7 @@ class BuildingDetailsViewModel: ObservableObject {
                 let decodedUsers = try JSONDecoder().decode([User].self, from: data)
                 DispatchQueue.main.async {
                     self?.usersInRestaurant = decodedUsers
+                    self?.isLoading = false
                 }
             } catch {
                 print("Decoding users failed: \(error)")
