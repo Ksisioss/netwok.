@@ -9,30 +9,24 @@ import Foundation
 import Combine
 
 class UserViewModel: ObservableObject {
-    @Published var users: [User] = [] // Liste de tous les utilisateurs
-    @Published var searchText: String = ""
-    @Published var filter: String = "All"
-//    @State private var selectedUser: User?
-
+    @Published var users: [User] = [] // Liste des utilisateurs filtrés affichés
+    private var allUsers: [User] = [] // Liste complète des utilisateurs
+    @Published var searchText: String = "" // Texte de recherche
 
     private var cancellables = Set<AnyCancellable>()
 
     init() {
         loadAllUsers()
 
-        // Filtrer les utilisateurs en fonction de searchText et filter
+        // Réagir aux changements dans searchText
         $searchText
-            .combineLatest($filter)
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
-            .map { [weak self] searchText, filter in
-                self?.filterUsers(searchText: searchText, filter: filter) ?? []
-            }
-            .assign(to: \.users, on: self)
+            .sink { [weak self] in self?.filterUsers(searchText: $0) }
             .store(in: &cancellables)
     }
 
-
     func loadAllUsers() {
+        // Chargement de la liste complète des utilisateurs
         guard let url = URL(string: "https://api-netwok.vercel.app/users") else {
             print("Invalid URL")
             return
@@ -52,7 +46,8 @@ class UserViewModel: ObservableObject {
             do {
                 let users = try JSONDecoder().decode([User].self, from: data)
                 DispatchQueue.main.async {
-                    self?.users = users
+                    self?.allUsers = users
+                    self?.filterUsers(searchText: self?.searchText ?? "")
                 }
             } catch {
                 print("Decoding users failed: \(error)")
@@ -60,12 +55,17 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
 
-    private func filterUsers(searchText: String, filter: String) -> [User] {
-            users.filter { user in
-                let matchesSearchText = searchText.isEmpty || user.firstname.localizedCaseInsensitiveContains(searchText) || user.lastname.localizedCaseInsensitiveContains(searchText)
-                let matchesFilter = filter == "All" || (filter == "Company" && user.company == searchText) || (filter == "Job Title" && user.job_title == searchText)
-                
-                return matchesSearchText && matchesFilter
+    private func filterUsers(searchText: String) {
+        DispatchQueue.main.async {
+            if searchText.isEmpty {
+                self.users = self.allUsers
+            } else {
+                self.users = self.allUsers.filter { user in
+                    user.firstname.localizedCaseInsensitiveContains(searchText) ||
+                    user.lastname.localizedCaseInsensitiveContains(searchText)
+                }
             }
         }
+    }
 }
+
