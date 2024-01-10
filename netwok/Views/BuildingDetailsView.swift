@@ -197,6 +197,8 @@ struct BuildingDetailsView: View {
                 viewModel.enterRestaurant(restaurantId: restaurantId, userId: userId)
             }
             viewModel.loadUsersInRestaurant(restaurantId: restaurantId) // Refresh the user list
+            viewModel.loadBuildingDetails(id: restaurantId)
+            viewModel.loadUserCount(restaurantId: restaurantId)
         }
 
 
