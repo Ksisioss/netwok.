@@ -10,8 +10,14 @@ struct SearchUserView: View {
     }
     
     var body: some View {
+        
         NavigationView {
+            
             VStack {
+                Rectangle()
+                    .frame(width: 60, height: 2)
+                    .foregroundColor(Color(red: 190/255, green: 190/255, blue: 190/255))
+                    .padding(.vertical, 10)
                 TextField("Search by name...", text: $viewModel.searchText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()

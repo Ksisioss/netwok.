@@ -8,7 +8,7 @@ struct UserDetailsView: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
-                    backButton
+                    
                     avatar
                     restaurantPinIndicator()
                         .offset(x: 111, y: -130)
@@ -20,7 +20,12 @@ struct UserDetailsView: View {
                 }
                 .padding()
             }
-            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true) // Cacher le bouton "Back"
+            .navigationBarItems(leading: Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                backButton
+            })
         }
     }
     
@@ -81,7 +86,7 @@ struct UserDetailsView: View {
                     detailItem(title: "Email", value: user.email, isEmail: true, iconName: "envelope")
                 }
                 .padding(.trailing, 17)
-
+                
                 VStack(alignment: .leading, spacing: 20) {
                     detailItem(title: "Job Title", value: user.job_title, iconName: "briefcase")
                     if user.is_enter {
@@ -94,7 +99,7 @@ struct UserDetailsView: View {
         .padding(.horizontal)
         .padding(.top, -40)
     }
-
+    
     
     func detailItem(title: String, value: String, isEmail: Bool = false, iconName: String) -> some View {
         HStack {
@@ -104,7 +109,7 @@ struct UserDetailsView: View {
                 Text(title)
                     .font(.custom("Manrope-Bold", size: 18))
                     .fontWeight(.bold)
-
+                
                 if isEmail {
                     Button(action: {
                         // Action to open the mail application
@@ -125,7 +130,7 @@ struct UserDetailsView: View {
             }
         }
     }
-
+    
     
     private func openMail(email: String) {
         if let url = URL(string: "mailto:\(email)"), UIApplication.shared.canOpenURL(url) {
